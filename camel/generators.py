@@ -62,18 +62,37 @@ class SystemMessageGenerator:
                 task_type,
                 RoleType.EMBODIMENT,
             )
+            sales_prompt_template = PromptTemplateGenerator().get_system_prompt(
+                task_type,
+                RoleType.SALES,
+            )
+            customer_prompt_template = PromptTemplateGenerator(
+            ).get_system_prompt(
+                task_type,
+                RoleType.CUSTOMER,
+            )
+            coach_prompt_template = PromptTemplateGenerator().get_system_prompt(
+                task_type,
+                RoleType.COACH,
+            )
 
             self.sys_prompts = dict()
             self.sys_prompts[RoleType.ASSISTANT] = assistant_prompt_template
             self.sys_prompts[RoleType.USER] = user_prompt_template
             self.sys_prompts[RoleType.CRITIC] = critic_prompt_template
             self.sys_prompts[RoleType.EMBODIMENT] = embodiment_prompt_template
+            self.sys_prompts[RoleType.SALES] = sales_prompt_template
+            self.sys_prompts[RoleType.CUSTOMER] = customer_prompt_template
+            self.sys_prompts[RoleType.COACH] = coach_prompt_template
 
             self.sys_msg_meta_dict_keys = (
                 assistant_prompt_template.key_words
                 | user_prompt_template.key_words
                 | critic_prompt_template.key_words
-                | embodiment_prompt_template.key_words)
+                | embodiment_prompt_template.key_words
+                | sales_prompt_template.key_words
+                | customer_prompt_template.key_words
+                | coach_prompt_template.key_words)
 
         if RoleType.DEFAULT not in self.sys_prompts:
             self.sys_prompts[RoleType.DEFAULT] = "You are a helpful assistant."

@@ -21,6 +21,9 @@ class RoleType(Enum):
     CRITIC = "critic"
     EMBODIMENT = "embodiment"
     DEFAULT = "default"
+    SALES = "sales"
+    CUSTOMER = "customer"
+    COACH = "coach"
 
 
 class ModelType(Enum):

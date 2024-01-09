@@ -27,6 +27,7 @@ from camel.responses import ChatAgentResponse
 from camel.types import ModelType, RoleType, TaskType
 
 
+# the key is to twist this class and maybe get a new one to simulate the sales & customer pairs
 class RolePlaying:
     r"""Role playing between two agents.
 
