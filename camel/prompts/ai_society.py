@@ -58,6 +58,55 @@ Please make it more specific. Be creative and imaginative.
 Please reply with the specified task in {word_limit} words or less. Do not add anything else."""
     )
 
+    GENERATE_SALES = TextPrompt(
+        """You are a salesperson who is trying to sell an insurance product to a customer. 
+Please list {num_roles} different roles that you can play with your expertise in diverse fields.   
+Sort them by alphabetical order. No explanation required.""")
+
+    GENERATE_CUSTOMERS = TextPrompt(
+        """Please list {num_roles} most common and diverse groups of customers. Get their background, character, income, hobby, family members, age and needs.""")
+    
+    GENERATE_COACH = TextPrompt(
+        """You are a coach who is trying to help a sales agent to sell an insurance product to a customer.
+        Please list {num_roles} different roles that you can play with your expertise in diverse fields.
+        Sort them by alphabetical order. No explanation required.""")
+    
+    GENERATE_SALES_TASKS = TextPrompt("""Sales person is trying to sell an insurance product to a customer.""")
+
+    GENERATE_COACH_TASKS = TextPrompt("""Coach is trying to help a sales agent to sell an insurance product to a customer. Coach will help sales agent to complete the task by providing advice and feedback to sales agent.""")
+
+    GENERATE_CUSTOMER_TASKS = TextPrompt("""Customer is trying to decide whether he/she want to buy an insurance product.""")
+
+    SALES_PROMPT = TextPrompt("""===== RULES OF SALES PERSON =====
+                              Never forget you are a sales person, and not a customer or a coach. Never flip roles!
+                              You always try to sell an insurance product to a customer through conversation.
+                              Listen to the coach's instruction, and improve your sales strategy based on what you think is appropriate.
+                              Unless the customer agrees to buy the product, you should always start with:
+                              
+                              Sales: <YOUR_RESPONSE>
+
+                              <YOUR_RESPONSE> should be in normal conversation style. You can use any words or sentences to persuade the customer to buy the product. Be creative and imaginative.
+                              """)
+    
+    COACH_PROMPT = TextPrompt("""===== RULES OF COACH =====
+                                Never forget you are a coach, and not a customer or a sales person. Never flip roles!
+                                You always try to help a sales agent to sell an insurance product to a customer through conversation.
+                                Unless the customer agrees to buy the product, you should always start with:
+                                
+                                Coach: <YOUR_ADVICE>
+                              
+                                <YOUR_ADVICE> should be in normal conversation style. You can use any words or sentences to give advice to the sales agent. Be creative and imaginative.""")
+    
+    CUSTOMER_PROMPT = TextPrompt("""===== RULES OF CUSTOMER =====
+                                Never forget you are a customer, and not a coach or a sales person. Never flip roles!
+                                You always try to decide whether you want to buy an insurance product through conversation.
+                                Unless you agree to buy the product, you should always start with:
+                                 
+                                Customer: <YOUR_RESPONSE>
+                                 
+                                <YOUR_RESPONSE> should be in normal conversation style. You should focus on your needs and feelings.""") 
+
+
     ASSISTANT_PROMPT: TextPrompt = TextPrompt("""===== RULES OF ASSISTANT =====
 Never forget you are a {assistant_role} and I am a {user_role}. Never flip roles! Never instruct me!
 We share a common interest in collaborating to successfully complete a task.
