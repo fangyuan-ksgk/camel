@@ -93,7 +93,7 @@ def wrap_prompt_functions(cls: T) -> T:
                 setattr(cls, attr_name, return_prompt_wrapper(cls, attr_value))
     return cls
 
-
+# This subclass inherits from string and string has addition method implemented, so automaticall we have addition method for TextPrompt (?)
 @wrap_prompt_functions
 class TextPrompt(str):
     r"""A class that represents a text prompt. The :obj:`TextPrompt` class
